@@ -28,6 +28,6 @@ spec:
                 value: "true"
             resources:
                 limits:
-                    nvidia.com/gpu: 2
+                    nvidia.com/gpu: 4
           imagePullSecrets:
             - name: "selbi-build-pull-secret"
