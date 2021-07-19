@@ -1,0 +1,33 @@
+apiVersion: kubeflow.org/v1
+kind: TFJob
+metadata:
+  generateName: tfjob-multi-
+  namespace: distributed-tf
+spec:
+  cleanPodPolicy: Running
+  tfReplicaSpecs:
+    Worker:
+      replicas: 2
+      restartPolicy: Never
+      template:
+        metadata:
+          labels:
+            app: distributed
+          annotations:
+            sidecar.istio.io/inject: "false"
+        spec:            
+          containers:
+          - name: tensorflow
+            image: "quay.io/selbi/tf-mnist:ubi8-tf2.4.0"
+            command: ["python3", "/home/mnist/src/main.py"] 
+            imagePullPolicy: Always
+            env:
+              - name: LD_LIBRARY_PATH
+                value: /usr/local/nvidia/lib:/usr/local/nvidia/lib64:/home/nccl/lib:/usr/local/cuda/lib:/usr/local/cuda-10.1/compat
+              - name: TF_FORCE_GPU_ALLOW_GROWTH
+                value: "true"
+            resources:
+                limits:
+                    nvidia.com/gpu: 2
+          imagePullSecrets:
+            - name: "selbi-build-pull-secret"
