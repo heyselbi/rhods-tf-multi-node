@@ -1,0 +1,7 @@
+[nvidia-machine-learning]
+name=nvidia-machine-learning
+baseurl=http://developer.download.nvidia.com/compute/machine-learning/repos/rhel8/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=http://developer.download.nvidia.com/compute/machine-learning/repos/rhel8/x86_64//7fa2af80.pub
+obsoletes=0
