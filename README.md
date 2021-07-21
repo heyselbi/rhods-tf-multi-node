@@ -9,7 +9,7 @@ PyTorch version of this example is in the works.
 Part of the instructions and Dockerfiles were adopted from a Red Hat [blog](https://www.openshift.com/blog/using-the-nvidia-gpu-operator-to-run-distributed-tensorflow-2.4-gpu-benchmarks-in-openshift-4) with modifications.
 
 ## Prerequisites
-**OpenShift 4.x**
+**OpenShift cluster and OpenShift 4.x**
 
 This example was tested and developed on Red Hat OpenShift Dedicated cluster with OpenShift 4.7.19 running in AWS. An OpenShift cluster with at least OpenShift 4.5 is recommended.
 
@@ -19,7 +19,7 @@ RHODS Operator needs to be installed. RHODS Operator 1.0.14 was used for this ex
 
 **NVIDIA GPU Operator and Kubeflow**
 
-NVIDIA GPU Operator allows running of pods of NVIDIA GPUs, while Kubeflow provides TFJob custom resource definition (CRD) that allows distribution of ML data via TensorFlow across multiple nodes. Instructions on installation of NVIDIA GPU Operator are [here](https://docs.nvidia.com/datacenter/kubernetes/openshift-on-gpu-install-guide/index.html#openshift-gpu-support-install-via-operatorhub). Kubeflow can be installed via installation of Open Data Hub operator.
+NVIDIA GPU Operator allows running of pods of NVIDIA GPUs, while Kubeflow provides TFJob custom resource definition (CRD) that allows distribution of ML data via TensorFlow across multiple nodes. Instructions on installation of NVIDIA GPU Operator are [here](https://docs.nvidia.com/datacenter/kubernetes/openshift-on-gpu-install-guide/index.html#openshift-gpu-support-install-via-operatorhub). Kubeflow can be installed [manually](https://www.kubeflow.org/docs/distributions/openshift/install-kubeflow/) or via installation of Open Data Hub operator.
 
 **Quay repository account and robot access**
 
