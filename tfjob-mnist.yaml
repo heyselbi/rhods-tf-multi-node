@@ -16,7 +16,7 @@ spec:
         spec:            
           containers:
           - name: tensorflow
-            image: "quay.io/selbi/tf-mnist:ubi8-tf2.4.0"
+            image: "quay.io/selbi/ubi-cuda-tf-mnist:latest"
             command: ["python3", "/home/mnist/src/main.py"] 
             imagePullPolicy: Always
             env:
@@ -27,5 +27,3 @@ spec:
             resources:
                 limits:
                     nvidia.com/gpu: 4
-          imagePullSecrets:
-            - name: "selbi-build-pull-secret"
